@@ -1,0 +1,498 @@
+'
+<!DOCTYPE html>\n<html lang="en">\n
+
+<head>\n
+    <meta charset="UTF-8">\n\n
+    <meta name="referrer" content="origin">\n
+    <script type="text/javascript"
+        src="page.cgi?1696507698.26425&id=bayotbase/publicfielddefs.js&hash=b3b9a7c4f04c5537a495c60af7e7c9c0"></script>
+    \n\n\n
+    <script
+        type="text/javascript">var BB_CONFIG = ({ "defaults": { "op_sys": "Unspecified", "priority": "Unspecified", "platform": "Unspecified", "bugentry_fields": ["summary", "product", "component", "rh_sub_components", "severity", "priority", "comment"], "severity": "Unspecified" }, "user": { "logged_in": false, "tzos": 0, "tz": "UTC", "tzsn": "UTC", "enterable_products": [], "groups": [] } });</script>
+    <script
+        type="text/javascript">\nvar classifications = \'[ { "name": "Red Hat", "description": "Red Hat Products"},{ "name": "Red Hat Storage", "description": "Red Hat (IBM) Storage Products"},{ "name": "JBoss", "description": "JBoss Products"},{ "name": "CentOS", "description": "CentOS Projects"},{ "name": "Fedora", "description": "Fedora Products"},{ "name": "Community", "description": "Community Projects"},{ "name": "oVirt", "description": "oVirt Virtualization Management Projects"},{ "name": "Internal", "description": "Internal Projects."},{ "name": "Other", "description": "Other Miscellaneous Products"},{ "name": "Unclassified", "description": "Not assigned to any classification"},{ "name": "Workflows", "description": "User driven workflows"},{ "name": "Retired", "description": "Products that have reached end of life, or were never released."} ]\';\nvar c_optgroups = JSON.parse(classifications);\n</script>
+    \n <title>617578 &ndash; (CVE-2010-1864, MOPS-2010-006) CVE-2010-1864 php: addcslashes interruption vulnerability
+        (MOPS-2010-006)</title>\n\n
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n\n
+    <link href="js/yui/assets/skins/sam/autocomplete.css?1695967137" rel="stylesheet" type="text/css">
+    <link href="js/yui/assets/skins/sam/calendar.css?1695967137" rel="stylesheet" type="text/css">
+    <link href="skins/standard/global.css?1695967137" rel="stylesheet" type="text/css">
+    <link href="extensions/BayotBase/web/css/base.css?1695967137" rel="stylesheet" type="text/css">
+    <link href="extensions/BayotBase/web/jquery-ui-1.12.1.custom/jquery-ui.min.css?1695967137" rel="stylesheet"
+        type="text/css">
+    <link href="skins/standard/bug.css?1695967137" rel="stylesheet" type="text/css">
+    <link href="extensions/Voting/web/style.css?1695967137" rel="stylesheet" type="text/css">
+    <link href="extensions/ExternalBugs/web/css/global.css?1695967137" rel="stylesheet" type="text/css">
+    <link href="extensions/FontAwesome/web/css/all.min.css?1695967137" rel="stylesheet" type="text/css">
+    <link href="extensions/RedHat/web/css/redhat.css?1695967137" rel="stylesheet" type="text/css">
+    <link href="extensions/RedHat/web/alertify/css/alertify.min.css?1695967137" rel="stylesheet" type="text/css">
+    <link href="extensions/RedHat/web/alertify/css/themes/bootstrap.min.css?1695967137" rel="stylesheet"
+        type="text/css">
+    <link href="extensions/SelectizeJS/web/css/selectize.bootstrap3.css?1695967137" rel="stylesheet" type="text/css">
+    <link href="extensions/SelectizeJS/web/css/SelectizeJS.css?1695967137" rel="stylesheet" type="text/css">\n\n\n\n \n
+    <script type="text/javascript" src="js/yui/yahoo-dom-event/yahoo-dom-event.js?1695967137"></script>
+    <script type="text/javascript" src="js/yui/cookie/cookie-min.js?1695967137"></script>
+    <script type="text/javascript" src="extensions/BayotBase/web/js/jquery-3.6.0.min.js?1695967137"></script>
+    <script type="text/javascript"
+        src="extensions/BayotBase/web/jquery-ui-1.12.1.custom/jquery-ui.min.js?1695967137"></script>
+    <script type="text/javascript" src="extensions/BayotBase/web/js/jquery.cookie.js?1695967137"></script>
+    <script type="text/javascript" src="extensions/BayotBase/web/js/jquery.jsonrpc.js?1695967137"></script>
+    <script type="text/javascript" src="extensions/BayotBase/web/js/Base.js?1695967137"></script>
+    <script type="text/javascript" src="extensions/BayotBase/web/js/bayot.util.js?1695967137"></script>
+    <script type="text/javascript" src="js/yui/datasource/datasource-min.js?1695967137"></script>
+    <script type="text/javascript" src="js/yui/connection/connection-min.js?1695967137"></script>
+    <script type="text/javascript" src="js/yui/json/json-min.js?1695967137"></script>
+    <script type="text/javascript" src="js/yui/autocomplete/autocomplete-min.js?1695967137"></script>
+    <script type="text/javascript" src="js/yui/calendar/calendar-min.js?1695967137"></script>
+    <script type="text/javascript" src="js/global.js?1695967137"></script>\n\n
+    <script
+        type="text/javascript">\n    <!--\n        YAHOO.namespace(\'bugzilla\');\n        YAHOO.util.Event.addListener = function (el, sType, fn, obj, overrideContext) {\n               if ( ("onpagehide" in window || YAHOO.env.ua.gecko) && sType === "unload") { sType = "pagehide"; };\n               var capture = ((sType == "focusin" || sType == "focusout") && !YAHOO.env.ua.ie) ? true : false;\n               return this._addListener(el, this._getType(sType), fn, obj, overrideContext, capture);\n         };\n        if ( "onpagehide" in window || YAHOO.env.ua.gecko) {\n            YAHOO.util.Event._simpleRemove(window, "unload", \n                                           YAHOO.util.Event._unload);\n        }\n        \n        function unhide_language_selector() { \n            YAHOO.util.Dom.removeClass(\n                \'lang_links_container\', \'bz_default_hidden\'\n            ); \n        } \n        YAHOO.util.Event.onDOMReady(unhide_language_selector);\n\n        \n        var BUGZILLA = {\n            param: {\n                cookiepath: \'\\/\',\n                maxusermatches: 5,\n                maxattachmentsize: 20000,\n                duplicate_or_move_bug_status: "CLOSED"\n            },\n            constant: {\n                COMMENT_COLS: 80\n            },\n            string: {\n                \n\n                attach_desc_required:\n                    "You must enter a Description for this attachment.",\n                component_required:\n                    "You must select a Component for this bug.",\n                description_required:\n                    "You must enter a Description for this bug.",\n                group_required:\n                    "You must select at least one group for bugs in this product.",\n                invalid_product_required:\n                    "The value of this field is not valid for this product.",\n                short_desc_required:\n                    "You must enter a Summary for this bug.",\n                version_required:\n                    "You must select a Version for this bug.",\n            }\n            \n              , api_token: \'\'\n            \n        };\n\n    if (history && history.replaceState) {\n      if(!document.location.href.match(/show_bug\\.cgi/)) {\n        history.replaceState( null,\n                             "617578 – (CVE-2010-1864, MOPS-2010-006) CVE-2010-1864 php: addcslashes interruption vulnerability (MOPS-2010-006)",\n                             "show_bug.cgi?id=617578" );\n        document.title = "617578 – (CVE-2010-1864, MOPS-2010-006) CVE-2010-1864 php: addcslashes interruption vulnerability (MOPS-2010-006)";\n      }\n      if (document.location.href.match(/show_bug\\.cgi\\?.*list_id=/)) {\n        var href = document.location.href;\n        href = href.replace(/[\\?&]+list_id=(\\d+|cookie)/, \'\');\n        history.replaceState(null, "617578 – (CVE-2010-1864, MOPS-2010-006) CVE-2010-1864 php: addcslashes interruption vulnerability (MOPS-2010-006)", href);\n      }\n    }\n    YAHOO.util.Event.onDOMReady(function() {\n      initDirtyFieldTracking();\n\n    });\n    // -->\n    </script>
+    \n
+    <script type="text/javascript" src="js/util.js?1695967137"></script>
+    <script type="text/javascript" src="js/field.js?1695967137"></script>
+    <script type="text/javascript" src="extensions/ExternalBugs/web/js/external_bugs.js?1695967137"></script>
+    <script type="text/javascript" src="extensions/RedHat/web/alertify/alertify.min.js?1695967137"></script>
+    <script type="text/javascript" src="extensions/RedHat/web/js/redhat.js?1695967137"></script>
+    <script type="text/javascript" src="extensions/RedHat/web/js/accessible-menu.js?1695967137"></script>
+    <script type="text/javascript" src="extensions/SelectizeJS/web/js/standalone/selectize.min.js?1695967137"></script>
+    <script type="text/javascript" src="extensions/SelectizeJS/web/js/SelectizeJS.js?1695967137"></script>\n\n \n\n \n
+    <link rel="search" type="application/opensearchdescription+xml" \n title="Red Hat Bugzilla"
+        href="./search_plugin.cgi">\n
+    <link rel="shortcut icon" href="/extensions/RedHat/web/css/favicons/production.ico?v=0">\n
+</head>\n\n
+
+<body \n
+    class="bugzilla-redhat-com status_colours_pastel\n                 bz_bug\n                 bz_status_CLOSED\n                 bz_product_Security_Response\n                 bz_component_vulnerability\n                 bz_bug_617578 yui-skin-sam">
+    \n <div id="header" role="banner">
+        <nav id="account_menu">\n <ul>\n <li>\n <button aria-expanded="false" aria-haspopup="true"
+                        aria-controls="submenu_login_options">\n <i class="fa fa-user"></i> Login\n </button>\n <ul
+                        id="submenu_login_options">
+                        <li id="mini_login_container">
+                            <ul id="saml2_container">\n Log in using an SSO provider:\n <li
+                                    id="saml2auth_login_Fedora Account System">\n <a
+                                        href="saml2_login.cgi?idp=Fedora%20Account%20System&amp;target=show_bug.cgi%3Fid%3D617578%26Cookie%3Dcxlang%2520%253D%2520en%253B__gads%2520%253D%2520ID%2520%253D%252036484b9e05609ded%2520-%252022908ea615e400f6%253A%2520T%2520%253D%25201695644877%253ART%2520%253D%25201695644877%253AS%2520%253D%2520ALNI_MaiHciOEJMqknVvFPiZzk_tT4wZsw%253B__gpi%2520%253D%2520UID%2520%253D%252000000c53f4ce89a4%253A%2520T%2520%253D%25201695644877%253ART%2520%253D%25201695644877%253AS%2520%253D%2520ALNI_MZMEdvVz5ZFPMHNI_7T_P0TxPiMEQ%26User-Agent%3DMozilla%252F5.0%2520%2528Windows%2520NT%252010.0%253B%2520Win64%253B%2520x64%2529%2520AppleWebKit%252F537.36%2520%2528KHTML%252C%2520like%2520Gecko%2529%2520Chrome%252F114.0.0.0%2520Safari%252F537.36"><i
+                                            class="fa fa-cogs" aria-hidden="true"></i>&nbsp;&nbsp;Fedora Account
+                                        System</a>\n </li>\n <li id="saml2auth_login_Red Hat Associate">\n <a
+                                        href="saml2_login.cgi?idp=Red%20Hat%20Associate&amp;target=show_bug.cgi%3Fid%3D617578%26Cookie%3Dcxlang%2520%253D%2520en%253B__gads%2520%253D%2520ID%2520%253D%252036484b9e05609ded%2520-%252022908ea615e400f6%253A%2520T%2520%253D%25201695644877%253ART%2520%253D%25201695644877%253AS%2520%253D%2520ALNI_MaiHciOEJMqknVvFPiZzk_tT4wZsw%253B__gpi%2520%253D%2520UID%2520%253D%252000000c53f4ce89a4%253A%2520T%2520%253D%25201695644877%253ART%2520%253D%25201695644877%253AS%2520%253D%2520ALNI_MZMEdvVz5ZFPMHNI_7T_P0TxPiMEQ%26User-Agent%3DMozilla%252F5.0%2520%2528Windows%2520NT%252010.0%253B%2520Win64%253B%2520x64%2529%2520AppleWebKit%252F537.36%2520%2528KHTML%252C%2520like%2520Gecko%2529%2520Chrome%252F114.0.0.0%2520Safari%252F537.36"><i
+                                            class="fa fa-user-secret" aria-hidden="true"></i>&nbsp;&nbsp;Red Hat
+                                        Associate</a>\n </li>\n <li id="saml2auth_login_Red Hat Customer">\n <a
+                                        href="saml2_login.cgi?idp=Red%20Hat%20Customer&amp;target=show_bug.cgi%3Fid%3D617578%26Cookie%3Dcxlang%2520%253D%2520en%253B__gads%2520%253D%2520ID%2520%253D%252036484b9e05609ded%2520-%252022908ea615e400f6%253A%2520T%2520%253D%25201695644877%253ART%2520%253D%25201695644877%253AS%2520%253D%2520ALNI_MaiHciOEJMqknVvFPiZzk_tT4wZsw%253B__gpi%2520%253D%2520UID%2520%253D%252000000c53f4ce89a4%253A%2520T%2520%253D%25201695644877%253ART%2520%253D%25201695644877%253AS%2520%253D%2520ALNI_MZMEdvVz5ZFPMHNI_7T_P0TxPiMEQ%26User-Agent%3DMozilla%252F5.0%2520%2528Windows%2520NT%252010.0%253B%2520Win64%253B%2520x64%2529%2520AppleWebKit%252F537.36%2520%2528KHTML%252C%2520like%2520Gecko%2529%2520Chrome%252F114.0.0.0%2520Safari%252F537.36"><i
+                                            class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Red Hat Customer</a>\n
+                                </li>\n </ul>\n\n
+                        <li style="padding-left: 1em;">\n Login using a Red Hat Bugzilla account\n <form
+                                action="show_bug.cgi?id=617578&amp;Cookie=cxlang%20%3D%20en%3B__gads%20%3D%20ID%20%3D%2036484b9e05609ded%20-%2022908ea615e400f6%3A%20T%20%3D%201695644877%3ART%20%3D%201695644877%3AS%20%3D%20ALNI_MaiHciOEJMqknVvFPiZzk_tT4wZsw%3B__gpi%20%3D%20UID%20%3D%2000000c53f4ce89a4%3A%20T%20%3D%201695644877%3ART%20%3D%201695644877%3AS%20%3D%20ALNI_MZMEdvVz5ZFPMHNI_7T_P0TxPiMEQ&amp;User-Agent=Mozilla%2F5.0%20%28Windows%20NT%2010.0%3B%20Win64%3B%20x64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F114.0.0.0%20Safari%2F537.36"
+                                method="POST" \n class="mini_login " \n id="mini_login">\n <input id="Bugzilla_login"
+                                    required\n name="Bugzilla_login" class="bz_login" \n type="email"
+                                    placeholder="Email Address" \n aria-label="Account Email Address">\n <input
+                                    class="bz_password" name="Bugzilla_password" type="password" \n
+                                    id="Bugzilla_password" required\n placeholder="Password or pin+token" \n
+                                    aria-label="Account Password or pin+token">\n <input type="hidden"
+                                    name="Bugzilla_login_token" \n value="">\n <input type="submit"
+                                    name="GoAheadAndLogIn" value="Login" \n id="log_in">\n </form>\n </li>\n</li>\n<li
+                    id="forgot_container">\n <button aria-expanded="false" aria-haspopup="true"
+                        aria-controls="submenu_forgot_password">\n <i class="fa fa-exclamation-triangle"
+                            aria-hidden="true"></i>&nbsp;&nbsp;Forgot&nbsp;Password\n </button>\n <ul
+                        id="submenu_forgot_password">\n <li style="padding-left: 2em;">\n <form action="token.cgi"
+                                method="post" id="forgot_form" \n class="mini_forgot">\n
+                                <!--label for="login">Email Address:</label-->\n <input name="loginname" size="20"
+                                    id="login" required\n type="email" placeholder="Your Email Address" \n
+                                    aria-label="Account Email Address">\n <input id="forgot_button"
+                                    value="Reset Password" \n type="submit">\n <input type="hidden" name="a"
+                                    value="reqpw">\n <input type="hidden" id="token" name="token" \n
+                                    value="1696508606-ZPLEUHyucpq-FeVXe44Yk6u87FmNNUDaTMVbTPe-h1I">\n </form>\n </li>\n
+                    </ul>\n</li>\n<li>\n <a href="createaccount.cgi"><span><i class="fas fa-plus"
+                                aria-hidden="true"></i>&nbsp;&nbsp;Create an Account</span></a>\n</li>\n </ul>\n </li>\n
+            </ul>\n</nav>\n\n <div id="titles">\n <span id="title">Red Hat Bugzilla &ndash; Bug&nbsp;617578</span>\n\n\n
+        </div>\n\n\n <nav id="site_menu" aria-label="Site Menu" role="navigation">
+            <ul>\n <li><a href="./">Home</a></li>\n <li><a href="enter_bug.cgi">New</a></li>\n <li>\n <button
+                        aria-expanded="false" aria-haspopup="true" aria-controls="submenu_search">Search <i
+                            class="fas fa-search"></i></button>\n <ul id="submenu_search">\n <li><a
+                                href="query.cgi?format=specific">Simple Search</a></li>\n <li><a
+                                href="query.cgi?format=advanced">Advanced Search</a></li>\n </ul>\n </li>\n <li>\n
+                    <button aria-expanded="false" aria-haspopup="true" aria-controls="submenu_my_links">My
+                        Links</button>\n <ul id="submenu_my_links">\n <li><a href="describecomponents.cgi">Browse</a>
+                        </li>\n <li>\n <a href="request.cgi">Requests</a>\n </li>\n <li>\n <button aria-expanded="false"
+                                aria-haspopup="true" aria-controls="submenu_reports">Reports</button>\n <ul
+                                id="submenu_reports">\n </li>\n <li>\n <button aria-expanded="false"
+                                aria-haspopup="true" aria-controls="submenu_current_state">Current State</button>\n <ul
+                                id="submenu_current_state">\n <li id="report_search">\n <a href="query.cgi">Search</a>\n
+                                </li>\n <li id="report_tabular">\n <a href="query.cgi?format=report-table">Tabular
+                                        reports</a>\n </li>\n <li id="report_graphical">\n <a
+                                        href="query.cgi?format=report-graph">Graphical reports</a>\n </li>\n <li
+                                    id="report_duplicates">\n <a href="duplicates.cgi">Duplicates</a>\n </li>\n </ul>\n
+                        </li>\n <li>\n <button aria-expanded="false" aria-haspopup="true"
+                                aria-controls="submenu_other_reports">Other Reports</button>\n <ul
+                                id="submenu_other_reports">\n <li>\n <a
+                                        href="https://bugzilla.redhat.com/page.cgi?id=user_activity.html">User
+                                        Changes</a>\n </li>\n </ul>\n </li>\n <li>\n <button aria-expanded="false"
+                                aria-haspopup="true" aria-controls="submenu_plotly_reports">Plotly Reports</button>\n
+                            <ul id="submenu_plotly_reports">\n <li>\n <a
+                                        href="https://bugzilla.redhat.com/page.cgi?id=bug_status.html">Bug Status</a>\n
+                                </li>\n <li>\n <a href="https://bugzilla.redhat.com/page.cgi?id=bug_severity.html">Bug
+                                        Severity</a>\n </li>\n <li>\n <a
+                                        href="https://bugzilla.redhat.com/page.cgi?id=non_defaults.html">Non-Defaults</a>\n
+                                </li>\n </ul>\n </li>\n </ul>\n </li>
+                <li><a href="page.cgi?id=productdashboard.html">Product Dashboard</a></li>\n
+            </ul>\n </li>\n\n <li>\n <button aria-expanded="false" aria-haspopup="true"
+                    aria-controls="submenu_help">Help</button>\n <ul id="submenu_help">
+                    <li><a href="docs/en/html/using/understanding.html">Page Help!</a></li>\n <li><a
+                            href="page.cgi?id=bug-writing.html">Bug Writing Guidelines</a></li> \n <li><a
+                            href="page.cgi?id=whats-new.html">What\'s new</a></li>\n <li><a
+                            href="https://access.redhat.com/help/browsers">Browser Support Policy</a></li>\n <li><a
+                            href="page.cgi?id=release-notes.html">5.0.4.rh93 Release notes</a></li>\n <li><a
+                            href="page.cgi?id=faq.html">FAQ</a></li>\n <li><a href="docs/en/html/index.html">Guides
+                            index</a></li>\n <li><a href="docs/en/html/using/index.html">User guide</a></li>\n <li><a
+                            href="docs/en/html/integrating/api/Bugzilla/WebService/Bug.html">Web Services</a></li>\n
+                    <li><a href="page.cgi?id=redhat/contact.html">Contact</a></li> \n <li><a
+                            href="page.cgi?id=terms-conditions.html">Legal</a></li> \n
+                </ul>\n </li>\n\n\n\n <li class="form">\n <form action="buglist.cgi" method="get" \n
+                    onsubmit="if (this.quicksearch.value == \'\')\n                  { alert(\'Please enter one or more search terms first.\');\n                    return false; } return true;">
+                    \n <input type="hidden" id="no_redirect_top" name="no_redirect" value="0">\n
+                    <script
+                        type="text/javascript">\n        if (history && history.replaceState) { \n          var no_redirect = document.getElementById("no_redirect_top"); \n          no_redirect.value = 1; \n } \n      </script>
+                    \n <input class="txt" type="text" id="quicksearch_top" name="quicksearch" \n
+                        aria-label="Quick Search input" title="Quick Search" value="">\n <input class="btn"
+                        type="submit" value="Quick Search" aria-label="Run Quick Search" \n id="find_top">\n
+                </form>\n <a href="page.cgi?id=quicksearch.html" title="Quicksearch Help">[?]</a>\n </li>\n\n</ul>\n
+        </nav>\n
+    </div>\n\n\n <div id="bugzilla-body" role="main">\n\n\n \n \n\n\n<noscript>\n <div id="no-js-message">This site
+                requires JavaScript to be enabled to function correctly, please enable it.</div>\n</noscript>\n\n<ul
+            class="related_actions">\n <li><a href="show_bug.cgi?format=multiple&amp;id=617578"
+                    title="Format For Printing"><i class="fa fa-print"></i></a></li>\n <li><a
+                    href="show_bug.cgi?ctype=xml&amp;id=617578" title="Export as XML"><i
+                        class="far fa-file-excel"></i></a></li>\n <li><a href="enter_bug.cgi?cloned_bug_id=617578"
+                    title="Clone This Bug"><i class="fa fa-clone"></i></a></li>\n <li>\n <a
+                    href="enter_bug.cgi?cloned_bug_id=617578&lite=1"
+                    title="Copy is a lite weight clone that only copies the summary &amp; description">\n <i
+                        class="far fa-clone"></i>\n </a>\n </li>\n\n\n \n <li>\n <a href="#c5" title="Last Comment">\n
+                    <i class="fas fa-arrow-down" aria-hidden="true"></i>\n </a>\n </li>
+            <li>\n <a href="buglist.cgi?bug_id=617578&amp;bug_id_type=anddependson&amp;format=tvp" title="TreeView+">\n
+                    <i class="fa fa-tree"></i>\n </a>\n</li>\n
+        </ul>\n
+        <script type="text/javascript">\n<!--\n\n//-->\n</script>\n\n\n\n\n<form name="changeform" id="changeform"
+            method="post" action="process_bug.cgi">\n\n\n\n\n\n <input type="hidden" name="delta_ts"
+                value="2021-02-24 22:43:48">\n <input type="hidden" name="id" value="617578">\n <input type="hidden"
+                name="token" value="1696508606-Xys-mbW7zphxPA9jzvWOwYcdTLEUDP3G-zF_R5L-Kh0">\n<div
+                class="bz_short_desc_container edit_form">\n \n \n\n <a
+                    href="show_bug.cgi?id=617578"><b>Bug&nbsp;617578</b></a> <span id="summary_container"
+                    class="bz_default_hidden">\n (<span id="alias_nonedit_display">CVE-2010-1864,
+                        MOPS-2010-006</span>)\n - <span id="short_desc_nonedit_display"><a
+                            href="https://access.redhat.com/security/cve/CVE-2010-1864">CVE-2010-1864</a> php:
+                        addcslashes interruption vulnerability (MOPS-2010-006)</span>\n </span>\n\n \n \n\n <div
+                    id="summary_input"><span class="field_label " \n id="field_label_short_desc">\n\n\n <a \n
+                            title="The bug summary is a short sentence which succinctly describes what the bug is about."
+                            \n class="field_help_link" \n href="page.cgi?id=fields.html#short_desc" \n>Summary:</a>\n\n
+                        \n \n</span>CVE-2010-1864 php: addcslashes interruption vulnerability (MOPS-2010-006)\n </div>\n
+            </div>\n
+            <script
+                type="text/javascript">\n    hideEditableField(\'summary_container\',\n                      \'summary_input\',\n                      \'summary_edit_action\',\n                      \'short_desc\',\n                      \'CVE-2010-1864 php: addcslashes interruption vulnerability (MOPS-2010-006)\' );\n  </script>
+            \n <table class="edit_form">\n <tr>\n \n <td id="bz_show_bug_column_1" class="bz_show_bug_column"> \n
+                        <table>\n <tr>\n <th class="field_label">\n <a href="describekeywords.cgi">Keywords</a>:\n </th>
+                                \n <td>\n <div class="keywords_select">\n <select id="keywords" name="keywords"
+                                            disabled="disabled" multiple="multiple">\n <option value="Security" \n
+                                                title="Bugs with the &quot;Security&quot; keyword are those that relate to a security vulnerability with a Red Hat product or service. For further information on how to report a security vulnerability to Red Hat please see the &quot;Security Contacts and Procedures&quot; page at &lt;a href=&quot;https://www.redhat.com/security/team/contact/&quot;&gt;https://www.redhat.com/security/team/contact/&lt;/a&gt;"
+                                                \n selected="selected" \n>Security\n </option>\n </select>\n </div>\n
+                                </td>\n </tr>\n\n <tr>\n <th class="field_label">\n <a
+                                        href="page.cgi?id=fields.html#bug_status">Status</a>:\n </th>\n <td
+                                    id="bz_field_status">\n <span id="static_bug_status">CLOSED\n DUPLICATE\n of <a
+                                            class="bz_bug_link\n          \n          bz_status_CLOSED  bz_closed\n                                        bz_public\n    "
+                                            \n title="CLOSED WONTFIX - php open_basedir / safe mode bypass" \n
+                                            href="show_bug.cgi?id=169857">bug 169857</a>\n </span>\n </td>\n </tr>\n\n
+                            <tr>
+                                <th class="field_label " \n id="field_label_alias">\n\n\n <a \n
+                                        title="A short, unique name assigned to a bug in order to assist with looking it up and referring to it in other places in Bugzilla."
+                                        \n class="field_help_link" \n href="page.cgi?id=fields.html#alias"
+                                        \n>Alias:</a>\n\n \n \n</th>\n <td>CVE-2010-1864, MOPS-2010-006\n </td>\n
+                            </tr>\n\n<tr>\n\n<th class="field_label " \n id="field_label_product">\n\n\n <a \n
+                                        title="Bugs are categorised into Products and Components. Select a Classification to narrow down this list."
+                                        \n class="field_help_link" \n href="describecomponents.cgi" \n>Product:</a>\n\n
+                                    \n \n</th>\n <td class="field_value " \n id="field_container_product">Security
+                                    Response\n\n</td>\n\n\n </tr>\n\n \n <tr class="bz_default_hidden">
+                                <th class="field_label " \n id="field_label_classification">\n\n\n <a \n
+                                        title="Bugs are categorised into Classifications, Products and Components. classifications is the top-level categorisation."
+                                        \n class="field_help_link" \n href="page.cgi?id=fields.html#classification"
+                                        \n>Classification:</a>\n\n \n \n</th>\n <td class="field_value " \n
+                                    id="field_container_classification">Other\n\n</td>\n
+                            </tr>\n \n \n \n <tr>
+                                <th class="field_label " \n id="field_label_component">\n\n\n <a \n
+                                        title="Components are second-level categories; each belongs to a particular Product. Select a Product to narrow down this list."
+                                        \n class="field_help_link" \n
+                                        href="describecomponents.cgi?product=Security Response" \n>Component:</a>\n\n \n
+                                    \n</th>\n <td>\n \n\n <input type="hidden" id="component" name="component"
+                                        value="vulnerability">vulnerability\n \n \n <span class="show_others">\n <a
+                                            href="buglist.cgi?component=vulnerability&amp;product=Security%20Response"
+                                            \n title="Show other bugs for this component"><i
+                                                class="fas fa-th-list"></i></a>\n \n \n <a
+                                            href="enter_bug.cgi?component=vulnerability&amp;product=Security%20Response&amp;version=unspecified"
+                                            \n title="Create a new bug for this component"><i
+                                                class="fas fa-plus-circle"></i></a>\n \n </span>\n </td>\n
+                            </tr>\n <tr>\n <th id="bz_rh_sub_component_input_th" \n
+                                    class="field_label bz_default_hidden">\n <label for="rh_sub_component">\n <a
+                                            class="field_help_link" href="page.cgi?id=fields.html#rh_sub_components"
+                                            title="The sub component of a specific component">Sub Component:</a>\n
+                                    </label>\n </th>\n <td id="bz_rh_sub_component_input_td" class="bz_default_hidden">
+                                    \n <input type="hidden" name="defined_rh_sub_component"
+                                        id="defined_rh_sub_component" value="0">\n <select name="rh_sub_component"
+                                        id="rh_sub_component" disabled="disabled" onchange="assign_to_default();">\n
+                                        <option value="">---</option>\n </select>\n \n <span class="show_others">\n <a
+                                            href="buglist.cgi?component=vulnerability&amp;product=Security%20Response"
+                                            title="Show other bugs for this sub-component"><i
+                                                class="fas fa-th-list"></i></a>\n \n <a
+                                            href="enter_bug.cgi?component=vulnerability&amp;product=Security%20Response&amp;version=unspecified&amp;sub_component="
+                                            \n title="Create a new bug for this sub-component"><i
+                                                class="fas fa-plus-circle"></i></a>\n </span>\n </td>\n </tr>\n <tr>
+                                <th class="field_label " \n id="field_label_version">\n\n\n <a \n
+                                        title="The version field defines the version of the software the bug was found in."
+                                        \n class="field_help_link" \n href="page.cgi?id=fields.html#version"
+                                        \n>Version:</a>\n\n \n \n</th>\n<td>\n <span id="version">unspecified\n </span>
+                                </td>\n
+                            </tr>\n \n \n \n <tr>
+                                <th class="field_label " \n id="field_label_rep_platform">\n\n\n <a \n
+                                        title="The hardware platform the bug was observed on. Note: When searching, selecting the option &quot;All&quot; only finds bugs whose value for this field is literally the word &quot;All&quot;."
+                                        \n class="field_help_link" \n href="page.cgi?id=fields.html#rep_platform"
+                                        \n>Hardware:</a>\n\n \n \n</th>\n <td class="field_value">All\n </td>\n
+                            </tr>\n <tr>
+                                <th class="field_label " \n id="field_label_op_sys">\n\n\n <a \n
+                                        title="The operating system the bug was observed on. Note: When searching, selecting the option &quot;All&quot; only finds bugs whose value for this field is literally the word &quot;All&quot;."
+                                        \n class="field_help_link" \n href="page.cgi?id=fields.html#op_sys"
+                                        \n>OS:</a>\n\n \n \n</th>\n <td class="field_value">\n Linux\n </td>\n
+                            </tr>\n \n \n <tr>\n <th class="field_label">\n <label accesskey="i">\n <a
+                                            href="page.cgi?id=fields.html#priority">Priority:</a></label>\n </th>\n <td>
+                                    unspecified\n </td>\n </tr>\n <tr>\n <th class="field_label">\n <label><a
+                                            href="page.cgi?id=fields.html#bug_severity">Severity:</a>\n </label>\n </th>
+                                \n <td>\n unspecified\n </td>\n </tr>\n\n <tr>
+                                <th class="field_label " \n id="field_label_target_milestone">\n\n\n <a \n
+                                        title="The Target Milestone field is used to define when the engineer the bug is assigned to expects to fix it."
+                                        \n class="field_help_link" \n href="page.cgi?id=fields.html#target_milestone"
+                                        \n>Target Milestone:</a>\n\n \n \n</th>
+                                <td>\n <span id="target_milestone">---\n </span></td>\n
+                            </tr>\n \n <tr>
+                                <th class="field_label " \n id="field_label_assigned_to">\n\n\n <a \n
+                                        title="The person in charge of resolving the bug." \n class="field_help_link" \n
+                                        href="page.cgi?id=fields.html#assigned_to" \n>Assignee:</a>\n\n \n \n</th>\n
+                                <td><span class="vcard bz_inactive"><span class="fn">Red Hat Product
+                                            Security</span>\n</span>\n </td>\n
+                            </tr>\n\n <tr>
+                                <th class="field_label " \n id="field_label_qa_contact">\n\n\n <a \n
+                                        title="The person responsible for confirming this bug if it is unconfirmed, and for verifying the fix once the bug has been resolved."
+                                        \n class="field_help_link" \n href="page.cgi?id=fields.html#qa_contact" \n>QA
+                                        Contact:</a>\n\n \n \n</th>\n <td><span class="vcard bz_inactive">\n</span>\n
+                                </td>\n
+                            </tr>\n \n <tr>
+                                <th class="field_label " \n id="field_label_docs_contact">\n\n <label for="docs_contact"
+                                        accesskey="q">\n\n <a \n
+                                            title="The person responsible for documenting once the bug has been resolved."
+                                            \n class="field_help_link" \n href="page.cgi?id=fields.html#docs_contact"
+                                            \n>Docs Contact:</a>\n</label>\n \n \n</th>\n <td><span
+                                        class="vcard bz_inactive">\n</span>\n </td>\n
+                            </tr>\n \n
+                            <script
+                                type="text/javascript">\n      assignToDefaultOnChange([\'product\', \'component\'],\n        \'prodsec-ir-bot\\x40bot.bugzilla.redhat.com\',\n        \'\',\n        \'\');\n    </script>
+                            \n \n \n <tr>
+                                <th class="field_label " \n id="field_label_bug_file_loc">\n\n\n <a \n
+                                        title="Bugs can have a URL associated with them - for example, a pointer to a web site where the problem is seen."
+                                        \n class="field_help_link" \n href="page.cgi?id=fields.html#bug_file_loc"
+                                        \n>URL:</a>\n\n \n \n</th>\n <td>\n <span id="bz_url_input_area">\n </span>\n
+                                </td>\n
+                            </tr>\n\n <tr>
+                                <th class="field_label " \n id="field_label_status_whiteboard">\n\n\n <a \n
+                                        title="Each bug has a free-form single line text entry box for adding tags and status information."
+                                        \n class="field_help_link" \n href="page.cgi?id=fields.html#status_whiteboard"
+                                        \n>Whiteboard:</a>\n\n \n \n</th>
+                                <td> \n </td>\n
+                            </tr>\n \n\n \n<tr>
+                                <th class="field_label " \n id="field_label_dependson">\n\n\n <a \n
+                                        title="The bugs listed here must be resolved before this bug can be resolved."
+                                        \n class="field_help_link" \n href="page.cgi?id=fields.html#dependson"
+                                        \n>Depends On:</a>\n\n \n \n</th>\n\n <td>\n <span id="dependson_input_area">\n
+                                    </span>\n\n </td>\n
+                            </tr>\n \n <tr>
+                                <th class="field_label " \n id="field_label_blocked">\n\n\n <a \n
+                                        title="This bug must be resolved before the bugs listed in this field can be resolved."
+                                        \n class="field_help_link" \n href="page.cgi?id=fields.html#blocked"
+                                        \n>Blocks:</a>\n\n \n \n</th>\n\n <td>\n <span id="blocked_input_area">\n
+                                    </span>\n\n </td>\n
+                            </tr>\n\n <tr>\n <th class="field_label">TreeView+</th>\n <td>\n <a
+                                        href="buglist.cgi?bug_id=617578&amp;bug_id_type=anddependson&amp;format=tvp">\n
+                                        depends on</a> /\n <a
+                                        href="buglist.cgi?bug_id=617578&amp;bug_id_type=andblocked&amp;format=tvp&amp;tvp_dir=blocked">\n
+                                        blocked</a>\n </td>\n <td></td>\n</tr>\n \n \n
+                        </table>\n </td>\n <td>\n <div class="bz_column_spacer">&nbsp;</div>\n </td>\n \n <td
+                        id="bz_show_bug_column_2" class="bz_show_bug_column">\n <table>\n <tr>\n <th
+                                    class="field_label">\n <a href="page.cgi?id=fields.html#reporter">Reported:</a>\n
+                                </th>\n <td>2010-07-23 13:21 UTC by <span class="vcard redhat_user"><span
+                                            class="fn">Tomas Hoger</span>\n</span>\n </td>\n </tr>\n \n <tr>\n <th
+                                    class="field_label">\n <a href="page.cgi?id=fields.html#modified">Modified:</a>\n
+                                </th>\n <td>2021-02-24 22:43 UTC\n (<a href="show_activity.cgi?id=617578">History</a>)\n
+                                </td>\n \n </tr>\n<tr>\n <th class="field_label">\n <label accesskey="a">\n <a
+                                            href="page.cgi?id=fields.html#cclist">CC List:</a>\n </label>\n </th>\n <td>
+                                    2 \n users\n <span id="cc_edit_area_showhide_container" class="bz_default_hidden">\n
+                                        (<a href="#" id="cc_edit_area_showhide">show</a>)\n </span>\n <div
+                                        id="cc_edit_area">\n <br>\n <select id="cc" multiple="multiple" size="5">\n
+                                            <option value="fedora">fedora</option>\n <option value="jorton">jorton
+                                            </option>\n </select>\n </div>\n
+                                    <script
+                                        type="text/javascript">\n            hideEditableField(\'cc_edit_area_showhide_container\', \n                               \'cc_edit_area\', \n                               \'cc_edit_area_showhide\', \n                               \'\', \n                               \'\');  \n          </script>
+                                    \n
+                                </td>\n </tr>\n\n\n \n<tr>\n <th class="field_label " \n id="field_label_cf_fixed_in">
+                                    \n\n\n <a \n title="The full package version. PGM uses to check if brew ..."
+                                        \n>Fixed In Version:</a>\n\n \n \n</th>\n <td class="field_value " \n
+                                    id="field_container_cf_fixed_in" colspan="2">\n\n</td>\n </tr>\n \n \n\n <tr>\n <th
+                                    class="field_label " \n id="field_label_cf_doc_type">\n\n\n <a \n
+                                        title="Click the information icon to the right to see the description" \n>Doc
+                                        Type:</a>\n\n \n <i class="fas fa-info-circle pop-text"
+                                        onclick="alertify.alert(\'Doc Type\', BB_FIELDS[\'cf_doc_type\'].long_desc)"
+                                        title="Click to see full description"></i>\n\n \n</th>\n <td
+                                    class="field_value " \n id="field_container_cf_doc_type" colspan="2">Bug
+                                    Fix\n\n<span id="cf_doc_warn"></span></td>\n </tr>\n \n \n\n <tr>\n <th
+                                    class="field_label " \n id="field_label_cf_release_notes">\n\n\n <a \n
+                                        title="Click the information icon to the right to see the description" \n>Doc
+                                        Text:</a>\n\n \n <i class="fas fa-info-circle pop-text"
+                                        onclick="alertify.alert(\'Doc Text\', BB_FIELDS[\'cf_release_notes\'].long_desc)"
+                                        title="Click to see full description"></i>\n\n \n</th>\n <td
+                                    class="field_value " \n id="field_container_cf_release_notes" colspan="2">\n <div
+                                        class="uneditable_textarea"></div>\n\n</td>\n </tr>\n \n \n\n \n \n\n <tr>\n <th
+                                    class="field_label " \n id="field_label_cf_clone_of">\n\n\n <a \n
+                                        title="The bug listed here was the bug cloned to create thi..." \n>Clone
+                                        Of:</a>\n\n \n \n</th>\n <td class="field_value " \n
+                                    id="field_container_cf_clone_of" colspan="2">\n\n</td>\n </tr>\n \n \n\n <tr>\n <th
+                                    class="field_label " \n id="field_label_cf_environment">\n\n\n <a \n
+                                        title="This field is used for unformatted text that helps t..."
+                                        \n>Environment:</a>\n\n \n \n</th>\n <td class="field_value " \n
+                                    id="field_container_cf_environment" colspan="2">\n <div class="uneditable_textarea">
+                                    </div>\n\n</td>\n </tr>\n \n \n\n <tr>\n <th class="field_label " \n
+                                    id="field_label_cf_last_closed">\n\n\n <a \n
+                                        title="When this bug was last marked as closed. Used for st..." \n>Last
+                                        Closed:</a>\n\n \n \n</th>\n <td class="field_value " \n
+                                    id="field_container_cf_last_closed" colspan="2">2010-07-23 13:32:18 UTC\n \n\n</td>
+                                \n </tr>\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n
+                            \n\n \n \n\n \n \n\n <tr>\n <th class="field_label " \n id="field_label_cf_embargoed">\n\n\n
+                                    <a \n title="This issue is currently under an embargo." \n>Embargoed:</a>\n\n \n \n
+                                </th>\n <td class="field_value " \n id="field_container_cf_embargoed" colspan="2">\n\n
+                                </td>\n </tr>\n\n\n\n\n </table>\n </td>\n </tr>\n <tr>\n <td colspan="3">\n
+                        <hr id="bz_top_half_spacer">\n
+                    </td>\n </tr>\n </table>\n\n <table id="bz_big_form_parts">\n <tr>\n <td>\n\n \n
+                        <script
+                            type="text/javascript">\n<!--\nfunction toggle_display(link) {\n    var table = document.getElementById("attachment_table");\n    var view_all = document.getElementById("view_all");\n    var hide_obsolete_url_parameter = "&hide_obsolete=1";\n    // Store current height for scrolling later\n    var originalHeight = table.offsetHeight;\n    var rows = YAHOO.util.Dom.getElementsByClassName(\n        \'bz_tr_obsolete\', \'tr\', table);\n\n    for (var i = 0; i < rows.length; i++) {\n        bz_toggleClass(rows[i], \'bz_default_hidden\');\n    }\n\n    if (YAHOO.util.Dom.hasClass(rows[0], \'bz_default_hidden\')) {\n        link.innerHTML = "Show Obsolete";\n        view_all.href = view_all.href + hide_obsolete_url_parameter \n    }\n    else {\n        link.innerHTML = "Hide Obsolete";\n        view_all.href = view_all.href.replace(hide_obsolete_url_parameter,"");\n    }\n\n    var newHeight = table.offsetHeight;\n    // This scrolling makes the window appear to not move at all.\n    window.scrollBy(0, newHeight - originalHeight);\n\n    return false;\n}\n//-->\n</script>
+                        \n\n<br>\n<table id="attachment_table">\n <tr id="a0">\n \n <th align="left">\n Attachments\n
+                                </th>\n <th colspan="2" align="right">\n <a
+                                        href="page.cgi?id=terms-conditions.html">(Terms of Use)</a>\n </th>\n \n </tr>
+                            \n\n\n <tr id="a1" class="bz_contenttype_text_plain">\n <td>\n <a
+                                        href="attachment.cgi?id=433953" \n title="View the content of the attachment">\n
+                                        <b>Reproducer from MOPS-2010-006</b></a>\n\n <span
+                                        class="bz_attach_extra_info">\n (1.48 KB,\n text/plain)\n\n <br>\n <a
+                                            href="#attach_433953" \n
+                                            title="Go to the comment associated with the attachment">2010-07-23 13:22
+                                            UTC</a>,\n\n <span class="vcard redhat_user"><span class="fn">Tomas
+                                                Hoger</span>\n</span>\n </span>\n </td>\n\n <td class="bz_attach_flags">
+                                    \n <i>no flags</i>\n </td>\n\n <td>\n <a
+                                        href="attachment.cgi?id=433953&amp;action=edit">Details</a>\n </td>\n </tr>\n\n
+                            <tr class="bz_attach_footer">\n <td colspan="3">\n <span class="bz_attach_view_hide">\n <a
+                                            id="view_all" href="attachment.cgi?bugid=617578&amp;action=viewall">View
+                                            All</a>\n </span>\n </td>\n </tr>\n</table>\n<br>\n\n \n\n \n \n\n
+                    </td>\n\n <td class="groups">\n </td>\n </tr>
+            </table>\n\n \n <div id="comments">
+                <script
+                    type="text/javascript">\n<!--\n  /* Adds the reply text to the \'comment\' textarea */\n  function replyToComment(id, real_id, name) 
+                                                                   {\n      var prefix = "(In reply to " + name + " from comment #" + id + ")\\n" ;\n      var replytext = "" ;\n        /* pre id="comment_name_N" */\n        var text_elem = document.getElementById(\'comment_text_\'+id);\n        var text = getText(text_elem);\n        replytext = prefix + wrapReplyText(text);\n\n\n      /* <textarea id="comment"> */\n      var textarea = document.getElementById(\'comment\');\n      if (textarea.value != replytext) {\n          textarea.value += replytext;\n      }\n\n      textarea.focus();\n  } \n//-->\n</script>
+                \n\n\n\n\n\n\n<!-- This auto-sizes the comments and positions the collapse/expand links \n     to the right. -->\n
+                <table class="bz_comment_table">\n<tr>\n<td>\n<div id="c0"
+                                class="bz_comment bz_first_comment\n            " \n>\n\n <div
+                                    class="bz_first_comment_head">\n\n\n <span class="bz_comment_number">\n <a \n
+                                            href="show_bug.cgi?id=617578#c0">Description</a>\n </span>\n\n <span
+                                        class="bz_comment_user">\n <span class="vcard redhat_user"><span
+                                                class="fn">Tomas Hoger</span>\n</span>\n </span>\n\n \n <span
+                                        class="bz_comment_user_images">\n </span>\n\n <span class="bz_comment_time">\n
+                                        2010-07-23 13:21:13 UTC\n </span>\n\n </div>\n\n \n\n\n \n \n\n\n\n
+                                <pre class="bz_comment_text" \n \n id="comment_text_0"
+                                    \n>Common Vulnerabilities and Exposures assigned an identifier <a href="https://access.redhat.com/security/cve/CVE-2010-1864">CVE-2010-1864</a> to the following vulnerability:\n\nThe addcslashes function in PHP 5.2 through 5.2.13 and 5.3 through 5.3.2 allows context-dependent attackers to obtain sensitive information (memory contents) by causing a userspace interruption of an internal function, related to the call time pass by reference feature.\n\nReference:\n<a href="http://php-security.org/2010/05/03/mops-2010-006-php-addcslashes-interruption-information-leak-vulnerability/index.html">http://php-security.org/2010/05/03/mops-2010-006-php-addcslashes-interruption-information-leak-vulnerability/index.html</a>\n\n</pre>
+                                \n
+                            </div>\n\n <div id="c1" class="bz_comment\n            " \n>\n\n <div
+                                    class="bz_comment_head">\n\n\n <span class="bz_comment_number">\n <a \n
+                                            href="show_bug.cgi?id=617578#c1">Comment 1</a>\n </span>\n\n <span
+                                        class="bz_comment_user">\n <span class="vcard redhat_user"><span
+                                                class="fn">Tomas Hoger</span>\n</span>\n </span>\n\n \n <span
+                                        class="bz_comment_user_images">\n </span>\n\n <span class="bz_comment_time">\n
+                                        2010-07-23 13:22:30 UTC\n </span>\n\n </div>\n\n \n\n\n \n \n\n\n\n
+                                <pre class="bz_comment_text" \n \n id="comment_text_1"
+                                    \n>Created <span class=""><a href="attachment.cgi?id=433953" name="attach_433953" title="Reproducer from MOPS-2010-006">attachment 433953</a> <a href="attachment.cgi?id=433953&amp;action=edit" title="Reproducer from MOPS-2010-006">[details]</a></span>\nReproducer from MOPS-2010-006\n\n</pre>
+                                \n
+                            </div>\n\n <div id="c2" class="bz_comment\n            " \n>\n\n <div
+                                    class="bz_comment_head">\n\n\n <span class="bz_comment_number">\n <a \n
+                                            href="show_bug.cgi?id=617578#c2">Comment 2</a>\n </span>\n\n <span
+                                        class="bz_comment_user">\n <span class="vcard redhat_user"><span
+                                                class="fn">Tomas Hoger</span>\n</span>\n </span>\n\n \n <span
+                                        class="bz_comment_user_images">\n </span>\n\n <span class="bz_comment_time">\n
+                                        2010-07-23 13:26:02 UTC\n </span>\n\n </div>\n\n \n\n\n \n \n\n\n\n
+                                <pre class="bz_comment_text" \n \n id="comment_text_2"
+                                    \n>Fixed upstream in Zend / zend_parse_parameters via:\n  <a href="http://svn.php.net/viewvc?view=revision&amp;revision=298945">http://svn.php.net/viewvc?view=revision&amp;revision=298945</a>\n\nFix included in upstream version 5.3.3:\n  <a href="http://www.php.net/releases/5_3_3.php">http://www.php.net/releases/5_3_3.php</a>\n\n</pre>
+                                \n
+                            </div>\n\n <div id="c3" class="bz_comment\n            " \n>\n\n <div
+                                    class="bz_comment_head">\n\n\n <span class="bz_comment_number">\n <a \n
+                                            href="show_bug.cgi?id=617578#c3">Comment 3</a>\n </span>\n\n <span
+                                        class="bz_comment_user">\n <span class="vcard redhat_user"><span
+                                                class="fn">Tomas Hoger</span>\n</span>\n </span>\n\n \n <span
+                                        class="bz_comment_user_images">\n </span>\n\n <span class="bz_comment_time">\n
+                                        2010-07-23 13:32:18 UTC\n </span>\n\n </div>\n\n \n\n\n \n \n\n\n\n
+                                <pre class="bz_comment_text" \n \n id="comment_text_3"
+                                    \n>Interruption vulnerabilities allow untrusted script author to bypass restrictions such as safe_mode or open_basedir.  Due to the limitations of the implementation of these mechanisms, they can not be relied on as security features.  Therefore flaws bypass of there restrictions are not considered security sensitive.  For additional details, refer to <a class="bz_bug_link\n          \n          bz_status_CLOSED  bz_closed\n                                        bz_public\n    "\n   title="CLOSED WONTFIX - php open_basedir / safe mode bypass"\n   href="show_bug.cgi?id=169857#c1">bug #169857, comment #1</a>.\n\n*** This bug has been marked as a duplicate of <a class="bz_bug_link\n          \n          bz_status_CLOSED  bz_closed\n                                        bz_public\n    "\n   title="CLOSED WONTFIX - php open_basedir / safe mode bypass"\n   href="show_bug.cgi?id=169857">bug 169857</a> ***\n\n</pre>
+                                \n
+                            </div>\n\n <div id="c4" class="bz_comment\n            " \n>\n\n <div
+                                    class="bz_comment_head">\n\n\n <span class="bz_comment_number">\n <a \n
+                                            href="show_bug.cgi?id=617578#c4">Comment 4</a>\n </span>\n\n <span
+                                        class="bz_comment_user">\n <span class="vcard redhat_user"><span
+                                                class="fn">Tomas Hoger</span>\n</span>\n </span>\n\n \n <span
+                                        class="bz_comment_user_images">\n </span>\n\n <span class="bz_comment_time">\n
+                                        2010-07-23 13:35:57 UTC\n </span>\n\n </div>\n\n \n\n\n \n \n\n\n\n
+                                <pre class="bz_comment_text" \n \n id="comment_text_4"
+                                    \n>Statement:\n\nRed Hat does not consider interruption issues allowing safe_mode / open_basedir restriction bypass to be security sensitive.  For more details see <a class="bz_bug_link\n          \n          bz_status_CLOSED  bz_closed\n                                        bz_public\n    "\n   title="CLOSED WONTFIX - php open_basedir / safe mode bypass"\n   href="show_bug.cgi?id=169857#c1">https://bugzilla.redhat.com/show_bug.cgi?id=169857#c1</a> and <a href="http://www.php.net/security-note.php">http://www.php.net/security-note.php</a>\n\n</pre>
+                                \n
+                            </div>\n\n <div id="c5" class="bz_comment\n            " \n>\n\n <div
+                                    class="bz_comment_head">\n\n\n <span class="bz_comment_number">\n <a \n
+                                            href="show_bug.cgi?id=617578#c5">Comment 5</a>\n </span>\n\n <span
+                                        class="bz_comment_user">\n <span class="vcard redhat_user"><span
+                                                class="fn">Tomas Hoger</span>\n</span>\n </span>\n\n \n <span
+                                        class="bz_comment_user_images">\n </span>\n\n <span class="bz_comment_time">\n
+                                        2010-07-26 13:54:53 UTC\n </span>\n\n </div>\n\n \n\n\n \n \n\n\n\n
+                                <pre class="bz_comment_text" \n \n id="comment_text_5"
+                                    \n>Additional note on MOPS reproducers using __toString() method to interrupt internal PHP function is available in <a class="bz_bug_link\n          \n          bz_status_CLOSED  bz_closed\n                                        bz_public\n    "\n   title="CLOSED DUPLICATE - CVE-2010-1915 php: preg_quote interruption vulnerability (MOPS-2010-017)"\n   href="show_bug.cgi?id=617211#c7">bug #617211, comment #7</a>.\n\n</pre>
+                                \n
+                            </div>\n\n\n
+                            <script>\n$(document).ready(function () {
+                                               \n  var mysel = document.getElementsByClassName(\'flag_type-415\')[0];\n  var relnotes = document.getElementById(\'cf_release_notes\');\n  if ( mysel && relnotes &&\n      relnotes.value != \'\' &&\n      relnotes.value != cf_doc_type_text[document.getElementById(\'cf_doc_type\').value] &&\n      mysel.options[mysel.selectedIndex].value != \'+\'\n    )\n      document.getElementById(\'cf_doc_warn\').innerHTML = \'<div class="warning "><b>Warning: Doc Text is not yet verified as correct</b></div>\';\n});\n</script>
+                            \n\n
+                        </td>\n<td class="comment_actions">\n</td>\n</tr>
+                </table>\n
+            </div>\n\n
+            <hr>
+            <div id="add_comment" class="bz_section_additional_comments">\n <table>\n <tr>\n <td>\n <fieldset>\n
+                                <legend>Note</legend>\n You need to\n <a
+                                    href="show_bug.cgi?id=617578&amp;GoAheadAndLogIn=1">log in</a>\n before you can
+                                comment on or make changes to this bug.\n </fieldset>\n </td>\n </tr> \n </table>\n
+            </div> \n\n
+        </form>\n\n
+        <hr>\n<ul class="related_actions">\n <li><a href="show_bug.cgi?format=multiple&amp;id=617578"
+                    title="Format For Printing"><i class="fa fa-print"></i></a></li>\n <li><a
+                    href="show_bug.cgi?ctype=xml&amp;id=617578" title="Export as XML"><i
+                        class="far fa-file-excel"></i></a></li>\n <li><a href="enter_bug.cgi?cloned_bug_id=617578"
+                    title="Clone This Bug"><i class="fa fa-clone"></i></a></li>\n <li>\n <a
+                    href="enter_bug.cgi?cloned_bug_id=617578&lite=1"
+                    title="Copy is a lite weight clone that only copies the summary &amp; description">\n <i
+                        class="far fa-clone"></i>\n </a>\n </li>
+            <li>\n <a href="buglist.cgi?bug_id=617578&amp;bug_id_type=anddependson&amp;format=tvp" title="TreeView+">\n
+                    <i class="fa fa-tree"></i>\n </a>\n</li>\n <li>\n <a href="#" title="Top of page">\n <i
+                        class="fa fa-arrow-up" aria-hidden="true"></i>\n </a>\n </li>\n
+        </ul>\n\n<br>\n
+    </div>\n\n <footer id="footer">\n <div class="intro"></div>\n<ul id="useful-links">\n <li id="links-actions">
+                <ul>\n\n</ul>\n
+            </li>\n\n \n\n\n\n\n \n</ul>\n\n <div class="outro"><a
+                href="page.cgi?id=redhat/privacy.html">Privacy</a>\n<a
+                href="page.cgi?id=redhat/contact.html">Contact</a>\n<a href="page.cgi?id=faq.html">FAQ</a>\n<a
+                href="page.cgi?id=terms-conditions.html">Legal</a></div>\n </footer>\n
+    <script
+        type="text/javascript">\n\n$(document).ready(function () {
+                                        \n    $(\'form\').submit(function( event ) {\n        dt_submit();\n        if( $(this).attr(\'id\') === \'changeform\') {\n          return(validateEnterBug(this));\n        }\n    });\n\n\n    $(\'#site_menu\').accessibleMenu();\n    $(\'#account_menu\').accessibleMenu();\n    $(\'#site_menu\').addClass(\'loaded\');\n    $(\'#account_menu\').addClass(\'loaded\');\n});\n\nif (window.self !== window.top) {\n    $(\'#header\').addClass(\'bz_default_hidden\');\n    $(\'#footer\').addClass(\'bz_default_hidden\');\n    $(\'.navigation\').addClass(\'bz_default_hidden\');\n    $(\'body\').css(\'background-image\', \'none\');\n}\n</script>
+    <script type="text/javascript">\n$(document).ready(function () { \n    selectize_standard_selects(); \n }); \n</script>\n
+</body>\n
+
+</html>'

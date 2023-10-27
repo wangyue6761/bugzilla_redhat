@@ -1,0 +1,255 @@
+<table class="bz_comment_table">
+  <tr>
+    <td>
+      <div class="bz_comment bz_first_comment" id="c0">
+        <div class="bz_first_comment_head">
+          <span class="bz_comment_number">
+            <a href="show_bug.cgi?id=601901#c0">Description</a>
+          </span>
+          <span class="bz_comment_user">
+            <span class="vcard redhat_user"><span class="fn">Vincent Danen</span>
+            </span>
+          </span>
+          <span class="bz_comment_user_images">
+          </span>
+          <span class="bz_comment_time">
+            2010-06-08 20:36:45 UTC
+          </span>
+        </div>
+        <pre class="bz_comment_text" id="comment_text_0">Common Vulnerabilities and Exposures assigned an identifier <a href="https://access.redhat.com/security/cve/CVE-2010-2191">CVE-2010-2191</a> to
+  the following vulnerability:
+  
+  The (1) parse_str, (2) preg_match, (3) unpack, and (4) pack functions;
+  the (5) ZEND_FETCH_RW, (6) ZEND_CONCAT, and (7) ZEND_ASSIGN_CONCAT
+  opcodes; and the (8) ArrayObject::uasort method in PHP 5.2 through
+  5.2.13 and 5.3 through 5.3.2 allow context-dependent attackers to
+  obtain sensitive information (memory contents) or trigger memory
+  corruption by causing a userspace interruption of an internal function
+  or handler.  NOTE: vectors 2 through 4 are related to the call time
+  pass by reference feature.
+  
+  References:
+  <a href="http://www.php-security.org/2010/05/31/mops-2010-049-php-parse_str-interruption-memory-corruption-vulnerability/index.html">http://www.php-security.org/2010/05/31/mops-2010-049-php-parse_str-interruption-memory-corruption-vulnerability/index.html</a>
+  <a href="http://www.php-security.org/2010/05/31/mops-2010-050-php-preg_match-interruption-information-leak-vulnerability/index.html">http://www.php-security.org/2010/05/31/mops-2010-050-php-preg_match-interruption-information-leak-vulnerability/index.html</a>
+  <a href="http://www.php-security.org/2010/05/31/mops-2010-051-php-unpack-interruption-information-leak-vulnerability/index.html">http://www.php-security.org/2010/05/31/mops-2010-051-php-unpack-interruption-information-leak-vulnerability/index.html</a>
+  <a href="http://www.php-security.org/2010/05/31/mops-2010-052-php-pack-interruption-information-leak-vulnerability/index.html">http://www.php-security.org/2010/05/31/mops-2010-052-php-pack-interruption-information-leak-vulnerability/index.html</a>
+  <a href="http://www.php-security.org/2010/05/31/mops-2010-053-php-zend_fetch_rw-opcode-interruption-information-leak-vulnerability/index.html">http://www.php-security.org/2010/05/31/mops-2010-053-php-zend_fetch_rw-opcode-interruption-information-leak-vulnerability/index.html</a>
+  <a href="http://www.php-security.org/2010/05/31/mops-2010-054-php-zend_concatzend_assign_concat-opcode-interruption-information-leak-and-memory-corruption-vulnerability/index.html">http://www.php-security.org/2010/05/31/mops-2010-054-php-zend_concatzend_assign_concat-opcode-interruption-information-leak-and-memory-corruption-vulnerability/index.html</a>
+  <a href="http://www.php-security.org/2010/05/31/mops-2010-055-php-arrayobjectuasort-interruption-memory-corruption-vulnerability/index.html">http://www.php-security.org/2010/05/31/mops-2010-055-php-arrayobjectuasort-interruption-memory-corruption-vulnerability/index.html</a>
+  
+  </pre>
+      </div>
+      <div class="bz_comment" id="c1">
+        <div class="bz_comment_head">
+          <span class="bz_comment_number">
+            <a href="show_bug.cgi?id=601901#c1">Comment 1</a>
+          </span>
+          <span class="bz_comment_user">
+            <span class="vcard redhat_user"><span class="fn">Tomas Hoger</span>
+            </span>
+          </span>
+          <span class="bz_comment_user_images">
+          </span>
+          <span class="bz_comment_time">
+            2010-07-28 07:11:18 UTC
+          </span>
+        </div>
+        <pre class="bz_comment_text" id="comment_text_1">Created <span class=""><a href="attachment.cgi?id=434935" name="attach_434935" title="MOPS-2010-049 reproducer">attachment 434935</a> <a href="attachment.cgi?id=434935&amp;action=edit" title="MOPS-2010-049 reproducer">[details]</a></span>
+  MOPS-2010-049 reproducer
+  
+  Upstream fix:
+    <a href="http://svn.php.net/viewvc?view=revision&amp;revision=299281">http://svn.php.net/viewvc?view=revision&amp;revision=299281</a>
+  
+  </pre>
+      </div>
+      <div class="bz_comment" id="c2">
+        <div class="bz_comment_head">
+          <span class="bz_comment_number">
+            <a href="show_bug.cgi?id=601901#c2">Comment 2</a>
+          </span>
+          <span class="bz_comment_user">
+            <span class="vcard redhat_user"><span class="fn">Tomas Hoger</span>
+            </span>
+          </span>
+          <span class="bz_comment_user_images">
+          </span>
+          <span class="bz_comment_time">
+            2010-07-28 08:34:29 UTC
+          </span>
+        </div>
+        <pre class="bz_comment_text" id="comment_text_2">Created <span class=""><a href="attachment.cgi?id=434949" name="attach_434949" title="MOPS-2010-050 reproducer">attachment 434949</a> <a href="attachment.cgi?id=434949&amp;action=edit" title="MOPS-2010-050 reproducer">[details]</a></span>
+  MOPS-2010-050 reproducer
+  
+  </pre>
+      </div>
+      <div class="bz_comment" id="c3">
+        <div class="bz_comment_head">
+          <span class="bz_comment_number">
+            <a href="show_bug.cgi?id=601901#c3">Comment 3</a>
+          </span>
+          <span class="bz_comment_user">
+            <span class="vcard redhat_user"><span class="fn">Tomas Hoger</span>
+            </span>
+          </span>
+          <span class="bz_comment_user_images">
+          </span>
+          <span class="bz_comment_time">
+            2010-07-28 08:34:52 UTC
+          </span>
+        </div>
+        <pre class="bz_comment_text" id="comment_text_3">Created <span class=""><a href="attachment.cgi?id=434950" name="attach_434950" title="MOPS-2010-051 reproducer">attachment 434950</a> <a href="attachment.cgi?id=434950&amp;action=edit" title="MOPS-2010-051 reproducer">[details]</a></span>
+  MOPS-2010-051 reproducer
+  
+  </pre>
+      </div>
+      <div class="bz_comment" id="c4">
+        <div class="bz_comment_head">
+          <span class="bz_comment_number">
+            <a href="show_bug.cgi?id=601901#c4">Comment 4</a>
+          </span>
+          <span class="bz_comment_user">
+            <span class="vcard redhat_user"><span class="fn">Tomas Hoger</span>
+            </span>
+          </span>
+          <span class="bz_comment_user_images">
+          </span>
+          <span class="bz_comment_time">
+            2010-07-28 08:38:06 UTC
+          </span>
+        </div>
+        <pre class="bz_comment_text" id="comment_text_4">Created <span class=""><a href="attachment.cgi?id=434952" name="attach_434952" title="MOPS-2010-052 reproducer">attachment 434952</a> <a href="attachment.cgi?id=434952&amp;action=edit" title="MOPS-2010-052 reproducer">[details]</a></span>
+  MOPS-2010-052 reproducer
+  
+  Upstream fix:
+    <a href="http://svn.php.net/viewvc?view=revision&amp;revision=299279">http://svn.php.net/viewvc?view=revision&amp;revision=299279</a>
+  
+  </pre>
+      </div>
+      <div class="bz_comment" id="c5">
+        <div class="bz_comment_head">
+          <span class="bz_comment_number">
+            <a href="show_bug.cgi?id=601901#c5">Comment 5</a>
+          </span>
+          <span class="bz_comment_user">
+            <span class="vcard redhat_user"><span class="fn">Tomas Hoger</span>
+            </span>
+          </span>
+          <span class="bz_comment_user_images">
+          </span>
+          <span class="bz_comment_time">
+            2010-07-28 09:32:45 UTC
+          </span>
+        </div>
+        <pre class="bz_comment_text" id="comment_text_5">Created <span class=""><a href="attachment.cgi?id=434958" name="attach_434958" title="MOPS-2010-053 reproducer">attachment 434958</a> <a href="attachment.cgi?id=434958&amp;action=edit" title="MOPS-2010-053 reproducer">[details]</a></span>
+  MOPS-2010-053 reproducer
+  
+  This reproducer crashes PHP 5.3.3.
+  
+  </pre>
+      </div>
+      <div class="bz_comment" id="c6">
+        <div class="bz_comment_head">
+          <span class="bz_comment_number">
+            <a href="show_bug.cgi?id=601901#c6">Comment 6</a>
+          </span>
+          <span class="bz_comment_user">
+            <span class="vcard redhat_user"><span class="fn">Tomas Hoger</span>
+            </span>
+          </span>
+          <span class="bz_comment_user_images">
+          </span>
+          <span class="bz_comment_time">
+            2010-07-28 09:51:31 UTC
+          </span>
+        </div>
+        <pre class="bz_comment_text" id="comment_text_6">Created <span class=""><a href="attachment.cgi?id=434966" name="attach_434966" title="MOPS-2010-054 reproducer">attachment 434966</a> <a href="attachment.cgi?id=434966&amp;action=edit" title="MOPS-2010-054 reproducer">[details]</a></span>
+  MOPS-2010-054 reproducer
+  
+  </pre>
+      </div>
+      <div class="bz_comment" id="c7">
+        <div class="bz_comment_head">
+          <span class="bz_comment_number">
+            <a href="show_bug.cgi?id=601901#c7">Comment 7</a>
+          </span>
+          <span class="bz_comment_user">
+            <span class="vcard redhat_user"><span class="fn">Tomas Hoger</span>
+            </span>
+          </span>
+          <span class="bz_comment_user_images">
+          </span>
+          <span class="bz_comment_time">
+            2010-07-28 09:52:15 UTC
+          </span>
+        </div>
+        <pre class="bz_comment_text" id="comment_text_7">Created <span class=""><a href="attachment.cgi?id=434968" name="attach_434968" title="MOPS-2010-055 reproducer">attachment 434968</a> <a href="attachment.cgi?id=434968&amp;action=edit" title="MOPS-2010-055 reproducer">[details]</a></span>
+  MOPS-2010-055 reproducer
+  
+  Upstream fix included in 5.3.3:
+    <a href="http://svn.php.net/viewvc?view=revision&amp;revision=299327">http://svn.php.net/viewvc?view=revision&amp;revision=299327</a>
+  
+  </pre>
+      </div>
+      <div class="bz_comment" id="c8">
+        <div class="bz_comment_head">
+          <span class="bz_comment_number">
+            <a href="show_bug.cgi?id=601901#c8">Comment 8</a>
+          </span>
+          <span class="bz_comment_user">
+            <span class="vcard redhat_user"><span class="fn">Tomas Hoger</span>
+            </span>
+          </span>
+          <span class="bz_comment_user_images">
+          </span>
+          <span class="bz_comment_time">
+            2010-07-28 09:54:42 UTC
+          </span>
+        </div>
+        <pre class="bz_comment_text" id="comment_text_8">More info on the impact of the interruption vulnerabilities - <a class="bz_bug_link bz_status_CLOSED bz_closed bz_public" href="show_bug.cgi?id=617578" title="CLOSED DUPLICATE - CVE-2010-1864 php: addcslashes interruption vulnerability (MOPS-2010-006)">bug #617578</a>,
+  <a href="show_bug.cgi?id=601901#c3">comment #3</a>.
+  
+  *** This bug has been marked as a duplicate of <a class="bz_bug_link bz_status_CLOSED bz_closed bz_public" href="show_bug.cgi?id=169857" title="CLOSED WONTFIX - php open_basedir / safe mode bypass">bug 169857</a> ***
+  
+  </pre>
+      </div>
+      <div class="bz_comment" id="c9">
+        <div class="bz_comment_head">
+          <span class="bz_comment_number">
+            <a href="show_bug.cgi?id=601901#c9">Comment 9</a>
+          </span>
+          <span class="bz_comment_user">
+            <span class="vcard redhat_user"><span class="fn">Tomas Hoger</span>
+            </span>
+          </span>
+          <span class="bz_comment_user_images">
+          </span>
+          <span class="bz_comment_time">
+            2010-07-28 09:54:58 UTC
+          </span>
+        </div>
+        <pre class="bz_comment_text" id="comment_text_9">Statement:
+  
+  Red Hat does not consider interruption issues allowing safe_mode / open_basedir
+  restriction bypass to be security sensitive.  For more details see
+  <a class="bz_bug_link bz_status_CLOSED bz_closed bz_public" href="show_bug.cgi?id=169857#c1" title="CLOSED WONTFIX - php open_basedir / safe mode bypass">https://bugzilla.redhat.com/show_bug.cgi?id=169857#c1</a> and
+  <a href="http://www.php.net/security-note.php">http://www.php.net/security-note.php</a>
+  
+  </pre>
+      </div>
+      <script>
+        $(document).ready(function () {
+          var mysel = document.getElementsByClassName('flag_type-415')[0];
+          var relnotes = document.getElementById('cf_release_notes');
+          if (mysel && relnotes &&
+            relnotes.value != '' &&
+            relnotes.value != cf_doc_type_text[document.getElementById('cf_doc_type').value] &&
+            mysel.options[mysel.selectedIndex].value != '+'
+          )
+            document.getElementById('cf_doc_warn').innerHTML = '<div class="warning "><b>Warning: Doc Text is not yet verified as correct</b></div>';
+        });
+      </script>
+    </td>
+    <td class="comment_actions">
+    </td>
+  </tr>
+</table>
